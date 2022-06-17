@@ -10,7 +10,6 @@ const functionality = require("./login/middleware/functionality.js")
 const auth = require("./login/middleware/auth");
 
 
-
 const PORT = process.env.PORT || 8080;
 
 const app = express();
@@ -88,7 +87,6 @@ let usersOnline = [];
 
 require("./app/routes/tutorial.routes")(app);
 
-
 app.get('/', (req, res) => {
   // console.log(users);
     res.render('welcome' );
@@ -104,10 +102,10 @@ app.get('/index/user/:user', auth, (req, res) => {
 
 app.get('/index', auth, (req, res) => {
 
-  users[req.email] = {}
+  users[req.nickname] = {}
   io.emit('user names', Object.keys(users));
 
-  return res.render('index', {rooms: rooms, user: req.email});
+  return res.render('index', {rooms: rooms, user: req.nickname});
 })
 
 // Register
@@ -134,7 +132,6 @@ app.get("/logout", auth, (req, res) => {
   functionality.logout(req, res);
 });
 
-
 app.get('/room/:room/user/:user', auth,  (req, res) => {
 
   const roomWithWhiteSpaces = req.params.room.replace(/\+/g, " ")
@@ -148,7 +145,7 @@ app.get('/room/:room/user/:user', auth,  (req, res) => {
   answer = '';
   axios.get(`http://localhost:${PORT}/api/tutorials/allChatEntrys/${roomWithWhiteSpaces}`)
   .then(function(response) {
-      response.data.forEach(msg => console.log(`Message ${msg}`))
+      // response.data.forEach(msg => console.log(`Message ${msg}`))
       //  console.log(`Type: ${response.data}`)
         if(response.data != ''){
           answer = response.data;
@@ -280,7 +277,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('send user names', () => {
-      socket.emit('user names', Object.keys(users));      
+      socket.emit('user names', functionality.whoIsOnline());      
     })
 
     //broadcast messages  

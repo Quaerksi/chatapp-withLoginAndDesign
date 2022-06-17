@@ -3,11 +3,7 @@ var form = document.getElementById('form');
 var input = document.getElementById('input');
 var message = document.getElementById('messages');
 
-//in a chat room
-// if(form != null){
-    // console.log(`Room: ${room} User: ${user}`);
-
-    //send the name of the new member
+//send the name of the new member
 socket.emit('new chat member', room, user);
 appendMessage('You joined')
 

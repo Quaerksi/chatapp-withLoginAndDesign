@@ -13,35 +13,73 @@
     </script>
     <script defer language="JavaScript" type="text/javascript" src="/js/index.js"></script>
     <script defer language="JavaScript" type="text/javascript" src="/js/activity-watcher.js"></script>
+    <link rel="stylesheet" href="/main.css" >
   </head>
   <body>
-    <h1>Hallo <%= user %></h1>
-    <form action="/logout">
-      <button type="submit">Logout</button>
-    </form>
-    <ul id="roomContainer">
-        <% rooms.forEach(room => { %>
-            <div><%= room %> </div>
-            
-            <% const roomManipulated = room.replace(/\s/g, "+") %>
-            <a href="http://localhost:8080/room/<%= roomManipulated%>/user/<%= user %>">Join</a>
-            <!-- <a href="https://chat-app-with-mongodb.herokuapp.com/room/<%= roomManipulated%>/user/<%= user %>">Join</a> -->
-        <% }); %>
-    </ul>
-    <form id="formCreateNewRoom" action="/room" method="POST">
-        <label for="roomName">Enter room name: </label>
-        <input type="text" name="roomName" required />
-        <input type="hidden" type="text" name="roomUser" value="<%= user %>"/>
-        <button type="submit">Create new room</button>
-    </form>
-    <div>
-      <h2>Details</h2>
-        <ol>
-          <li>You can enter a chat only once. The older socket gets disconnected</li>
-          <li>You can join multible chats at the same time. Please user the 'Open Link in new Tab' function </li>
-          <li>In the chat you get infos about who is allready connected, who joines, who leaves</li>
-          <li>You will be logged out after 1 hour of inactivity.</li>
-        </ol>
+    <div class="border-container">
+      <div class="layout grid">
+        <div class="headlines headline-index">
+          <h1 class="h1-index">Hello <%= user %></h1>
+        </div>
+        <form action="/logout" class="logout">
+          <button type="submit">Logout</button>
+        </form>
+        <div class="div-roomContainer">
+          <h3 class="h3-index">Rooms:</h3>
+          <ul id="roomContainer" class="roomContainer">
+              <% rooms.forEach(room => { %>
+                <% const roomManipulated = room.replace(/\s/g, "+") %>
+                  <a href="http://localhost:8080/room/<%= roomManipulated%>/user/<%= user %>">Join</a>
+                  <!-- <a href="https://chat-app-with-mongodb.herokuapp.com/room/<%= roomManipulated%>/user/<%= user %>">Join</a> -->
+                  <div><%= room %> </div>
+              <% }); %>
+          </ul>
+        </div>
+        <form class="form-newRoom" id="formCreateNewRoom" action="/room" method="POST">
+          <div class="row">
+            <div class="col-25">
+              <label for="roomName">Enter room name: </label>
+            </div>
+            <div class="col-75">
+              <input name="roomName" type="text" placeholder="Your nickname.." required>
+              
+            </div>
+          </div>
+          <input type="hidden" type="text" name="roomUser" value="<%= user %>"></br>
+          <!-- <div class="row">
+            <div class="col-25">
+              <label for="password">password</label>
+            </div>
+            <div class="col-75">
+              <inputtype="hidden" type="text" name="roomUser" value="<%= user %>"></br>
+            </div>
+          </div> -->
+          <br>
+          <div class="row">
+            <input type="submit" value="Create">
+          </div>
+          </form>
+        <!-- <form class="form-newRoom" id="formCreateNewRoom" action="/room" method="POST">
+            <label for="roomName">Enter room name: </label>
+            <input type="text" name="roomName" required />
+            <input type="hidden" type="text" name="roomUser" value="<%= user %>"/>
+            <button class="form-newRoom-submit" type="submit">Create new room</button>
+        </form> -->
+        <div class="div-userSignedIn">
+          <h2 class="h2-index">assigned users</h2>
+          <ul id="listUserNames" class="listUserNames">
+          </ul> 
+        </div>
+        <div class="grid-details">
+          <h2 class="h2-index">Details</h2>
+            <ol class="ol-index">
+              <li>You can enter a chat only once. The older socket gets disconnected</li>
+              <li>You can join multible chats at the same time. Please user the 'Open Link in new Tab' function </li>
+              <li>In the chat you get infos about who is allready connected, who joines, who leaves</li>
+              <li>You will be logged out after 1 hour of inactivity.</li>
+            </ol>
+        </div>
+      </div>
     </div>
   </body>
 </html>
