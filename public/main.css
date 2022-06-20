@@ -88,7 +88,7 @@ margin-top: 0;
   border: 9px solid rgb(0, 0, 0);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 670px) {
 
   .border-container {
     animation: 2s bordermove 3;
@@ -108,14 +108,14 @@ margin-top: 0;
 
 /*****************border end**************************/
 
-@media (min-width: 600px) {
+@media (min-width: 670px) {
 
-  .rotateLetters{
+  .typewriter{
     overflow: hidden;
     height:1.1em;
     word-wrap: break-word;
     white-space: nowrap;
-    animation: typing 4s steps(35) forwards;
+    animation: typing 4s steps(40) forwards;
   }
 
   @keyframes typing {
@@ -146,7 +146,7 @@ margin-top: 0;
 }
 
 .h2-index{
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-bottom: 8px;
 }
 
@@ -184,7 +184,7 @@ margin-top: 0;
   padding-left: 15px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 670px) {
 
   .grid{
     grid-template-columns: 1fr 1.5fr;
@@ -198,11 +198,11 @@ margin-top: 0;
   }
 
   .div-userSignedIn{
-    grid-area: 3 / 2 / 4 / 3;
+    grid-area: 3 / 2 / 4 / 3; 
   }
 
   .logout{
-    grid-area: 4 / 2 / 5 / 4
+    /* grid-area: 4 / 2 / 5 / 4;  */
   }
 
   .listUserNames{
@@ -211,13 +211,13 @@ margin-top: 0;
 
   .form-newRoom{
     grid-area: 2 / 2 / 3 / 3;
-    row-gap: 10px;
-    height: 50px;
-    justify-content: space-around; 
+    display: inline-block;
+    border: 1px solid green;
+    padding: 10px
   }
 
   .form-newRoom > input {
-    
+    margin-top: 20px;;
     max-width: 200px;
     height: 20px;
   }
@@ -251,9 +251,10 @@ margin-top: 0;
 }
 
 /***************************form****************************************/
+
 input{
   /* width: 100%; */
-  width: 300px;
+  /* width: 300px; */
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -266,6 +267,12 @@ label {
   display: inline-block;
 }
 
+.logout-btn-index{
+  all: unset;
+  margin-top: 30px;;
+}
+
+.logout-btn-index,
 input[type=submit] {
   background-color: #04AA6D;
   color: white;
@@ -273,8 +280,8 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  float: left;
-  width: 130px;
+  /* float: left; */
+  /* width: 130px; */
 }
 
 input[type=submit]:hover {
@@ -297,7 +304,7 @@ input[type=submit]:hover {
 
 .col-75 {
   float: left;
-  width: 75%;
+  width: 60%;
   margin-top: 6px;
 }
 
@@ -308,11 +315,35 @@ input[type=submit]:hover {
   clear: both;
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 530px) {
+.adjust-label{
+  margin-top: 0px;
+}
+
+.row-adjust-newRoom{
+  margin-top: -5px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.adjust-form{
+  width: 250px;
+}
+
+@media screen and (max-width: 670px) {
+
+  
+/* 
+  .row-adjust{
+    margin-top: 0px;
+  }
 
   input{
     width: 190px;
+  } */
+
+  input{
+    width: 186px;
   }
 
   .col-25, .col-75, input[type=submit] {

@@ -121,7 +121,7 @@ exports.whoIsOnline = function(){
     var users = [];
     registeredToken.forEach(token => {
         const decoded = jwt.verify(token, config.TOKEN_KEY);
-        users.push(decoded.nickname)
+        users.find(name => name == decoded.nickname) ? '' : users.push(decoded.nickname)
     })
     
     return users;

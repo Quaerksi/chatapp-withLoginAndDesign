@@ -21,8 +21,8 @@
         <div class="headlines headline-index">
           <h1 class="h1-index">Hello <%= user %></h1>
         </div>
-        <form action="/logout" class="logout">
-          <button type="submit">Logout</button>
+        <form  action="/logout" class="logout">
+          <button class="logout-btn-index" type="submit">Logout</button>
         </form>
         <div class="div-roomContainer">
           <h3 class="h3-index">Rooms:</h3>
@@ -35,8 +35,8 @@
               <% }); %>
           </ul>
         </div>
-        <form class="form-newRoom" id="formCreateNewRoom" action="/room" method="POST">
-          <div class="row">
+        <form class="form-newRoom adjust-form" id="formCreateNewRoom" action="/room" method="POST">
+          <div class="row row-adjust-newRoom">
             <div class="col-25">
               <label for="roomName">Enter room name: </label>
             </div>
@@ -46,25 +46,10 @@
             </div>
           </div>
           <input type="hidden" type="text" name="roomUser" value="<%= user %>"></br>
-          <!-- <div class="row">
-            <div class="col-25">
-              <label for="password">password</label>
-            </div>
-            <div class="col-75">
-              <inputtype="hidden" type="text" name="roomUser" value="<%= user %>"></br>
-            </div>
-          </div> -->
-          <br>
-          <div class="row">
-            <input type="submit" value="Create">
+          <div class="row row-adjust">
+            <input  type="submit" value="Create">
           </div>
           </form>
-        <!-- <form class="form-newRoom" id="formCreateNewRoom" action="/room" method="POST">
-            <label for="roomName">Enter room name: </label>
-            <input type="text" name="roomName" required />
-            <input type="hidden" type="text" name="roomUser" value="<%= user %>"/>
-            <button class="form-newRoom-submit" type="submit">Create new room</button>
-        </form> -->
         <div class="div-userSignedIn">
           <h2 class="h2-index">assigned users</h2>
           <ul id="listUserNames" class="listUserNames">
