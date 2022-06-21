@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="application/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="./ejs.min.js"></script>
+    <script>
+      const user = '<%= user %>';
+      const messageDB = '';
+    </script>
+    <script defer language="JavaScript" type="text/javascript" src="/js/index.js"></script>
+    <script defer language="JavaScript" type="text/javascript" src="/js/activity-watcher.js"></script>
+    <link rel="stylesheet" href="/main.css" >
+  </head>
+  <body>
+    <div class="border-container">
+      <div class="layout grid">
+        <div class="headlines headline-index">
+          <h1 class="h1-index">Hello <%= user %></h1>
+        </div>
+        <form  action="/logout" class="logout">
+          <button class="logout-btn-index" type="submit">Logout</button>
+        </form>
+        <div class="div-roomContainer">
+          <h3 class="h3-index">Rooms:</h3>
+          <ul id="roomContainer" class="roomContainer">
+              <% rooms.forEach(room => { %>
+                <% const roomManipulated = room.replace(/\s/g, "+") %>
+                  <!-- <a href="http://localhost:8080/room/<%= roomManipulated%>/user/<%= user %>">Join</a> -->
+                  <a href="https://juliettes-great-chat-app.herokuapp.com/room/<%= roomManipulated%>/user/<%= user %>">Join</a>
+                  <div><%= room %> </div>
+              <% }); %>
+          </ul>
+        </div>
+        <form class="form-newRoom adjust-form" id="formCreateNewRoom" action="/room" method="POST">
+          <div class="row row-adjust-newRoom">
+            <div class="col-25">
+              <label for="roomName">Enter room name: </label>
+            </div>
+            <div class="col-75">
+              <input name="roomName" type="text" placeholder="New roomname.." required>
+              
+            </div>
+          </div>
+          <input type="hidden" type="text" name="roomUser" value="<%= user %>"></br>
+          <div class="row row-adjust">
+            <input  type="submit" value="Create">
+          </div>
+          </form>
+        <div class="div-userSignedIn">
+          <h2 class="h2-index">assigned users</h2>
+          <ul id="listUserNames" class="listUserNames">
+          </ul> 
+        </div>
+        <div class="grid-details">
+          <h2 class="h2-index">Details</h2>
+            <ol class="ol-index">
+              <li>You can enter a chat only once. The older socket gets disconnected</li>
+              <li>You can join multible chats at the same time. Please user the 'Open Link in new Tab' function </li>
+              <li>In the chat you get infos about who is allready connected, who joines, who leaves</li>
+              <li>You will be logged out after 1 hour of inactivity.</li>
+            </ol>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

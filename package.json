@@ -1,0 +1,26 @@
+{
+  "name": "chat-app-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "serve": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dart-sass": "^1.25.0",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "live-server": "^1.2.2",
+    "mongoose": "^6.3.4",
+    "nodemon": "^2.0.16",
+    "socket.io": "^4.5.0"
+  }
+}

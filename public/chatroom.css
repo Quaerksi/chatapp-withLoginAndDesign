@@ -1,0 +1,59 @@
+.container-chatroom{
+      margin: 40px;
+}
+#form { 
+      background: rgba(0, 0, 0, 0.15); 
+      margin: 15px;
+      margin-bottom: 18px;
+      padding: 0.25rem; 
+      position: fixed; 
+      bottom: 0; 
+      left: 10px; 
+      right: 10px; 
+      display: flex; 
+      height: 3rem; 
+      box-sizing: border-box; 
+      backdrop-filter: blur(10px); 
+}
+      
+#input { 
+      border: none;  
+      flex-grow: 1; 
+      border-radius: 2rem; 
+      margin: 0.25rem; 
+}
+
+#input:focus { 
+      outline: none;
+}
+
+#form > button { 
+      background: #333; 
+      border: none; 
+      padding: 0 1rem; 
+      margin: 0.25rem; 
+      border-radius: 3px; 
+      outline: none; 
+      color: #fff; 
+}
+
+#messages { 
+      list-style-type: none; 
+      margin-bottom: 70px; 
+      margin-top: 20px;
+      padding: 0; 
+      
+}
+
+#messages > li { 
+      padding: 0.5rem 1rem; 
+
+}
+
+#messages > li:last-child {
+      margin-bottom: 10px;
+}
+
+#messages > li:nth-child(odd) { 
+      background: #efefef;
+}

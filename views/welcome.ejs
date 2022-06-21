@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/main.css" >
+    <script>
+      const messageDB = '';
+    </script>
+    <script type="application/javascript" src="/socket.io/socket.io.js"></script>
+    <script defer language="JavaScript" type="text/javascript" src="/js/index.js"></script>
+    <script defer language="JavaScript" type="text/javascript" src="/js/welcome.js"></script>
+    
+  </head>
+  <body>
+    <div class="border-container layout">
+      <div class="headlines">
+        <h1 class="typewriter">Welcome to Juliettes Chat App</h1>
+        <h3>Feel free to play with it</h3>
+      </div>
+      <div role="alert" id="loginAlertWelcomePage" style="display: none">
+        <p>Incorrect Credential</p>
+      </div>
+      <div class="content">
+        <form class="form" id="formLogin" action="/login" method="POST">
+          <div class="row">
+            <div class="col-25">
+              <label for="nickname">nickname</label>
+            </div>
+            <div class="col-75">
+              <input name="nickname" type="text" placeholder="Your nickname.." required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="password">password</label>
+            </div>
+            <div class="col-75">
+              <input name="password" type="password" placeholder="Enter your password" required></br>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <input type="submit" value="Submit">
+          </div>
+          </form>
+        <a href="https://juliettes-great-chat-app.herokuapp.com/register">Register</a>
+        <!-- <a class="link" href="http://localhost:8080/register">Register</a> -->
+      
+        <div class="information"></div>
+          <h3>This chat app is made with:</h3>
+          <ul>
+            <li>JavaScript ES6 HTML5 CSS3</li>
+            <li>express</li>
+            <li>EJS</li>
+            <li>socket.io</li>
+            <li>dotenv</li>
+            <li>bcryptjs</li>
+            <li>cookie-parser</li>
+            <li>jsonwebtoken</li>
+            <li>mongoose</li>
+            <!-- <li></li> -->
+          </ul>
+          <p>All ***.herokuapp.com are ssl encrypted </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
