@@ -64,7 +64,9 @@ exports.findAll = (req, res) => {
       var connection = db.mongoose.connection;
       var collections = connection.db.listCollections();
       collections.toArray(function (err, names) {
+        
         var namesArray = names.map((input) => input.name)
+        // console.log(`in controller ${namesArray}`)
         res.status(200).send(namesArray);
       });
 };

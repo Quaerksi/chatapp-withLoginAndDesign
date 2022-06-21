@@ -154,6 +154,7 @@ app.get('/room/:room/user/:user', auth,  (req, res) => {
         if(answer != '') {
           answer = JSON.stringify(answer);
         }
+        console.log(`answer ${answer}`)
       return res.render('room', {room:roomWithWhiteSpaces, user:req.params.user, messages:answer});
     })
   .catch(function (error) {

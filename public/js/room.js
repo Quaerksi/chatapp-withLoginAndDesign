@@ -41,11 +41,12 @@ form.addEventListener('submit', function(e) {
 // ********************************* db chat message filling *********************************//
 
 if(messageDB && messageDB.length > 1){
-    // console.log(`index.js 1: ${messageDB}`)
-    let unescapedString = messageDB.replace(/\&#34;/g, '"')
-    // console.log(`index.js 2: ${unescapedString}`)
-    let unescapedArray = JSON.parse(unescapedString);
-    unescapedArray.forEach(msg => appendMessage(`Old message from ${msg}`) )
+    console.log(`index.js 0: ${messageDB}`)
+    let escapedString = messageDB.replace(/\&#34;/g, '"')
+    escapedString = escapedString.replace(/\&#39;/g, "'")
+    console.log(`index.js 2: ${escapedString}`)
+    let escapedArray = JSON.parse(escapedString);
+    escapedArray.forEach(msg => appendMessage(`Old message from ${msg}`) )
 } else if (form != null && messageDB.length == 0){
      appendMessage(`No old messages`)
 }
