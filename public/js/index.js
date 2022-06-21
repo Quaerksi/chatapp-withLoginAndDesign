@@ -1,4 +1,5 @@
 socket = io();
+// socket.emit('user names', usersOnline);
 
 //rooms seen on index page
 const roomContainer = document.getElementById('roomContainer');
@@ -25,16 +26,16 @@ if(listUserNames){
 
 socket.on('user names', users => {
 
-    // console.log(`In user  names ${users}`)
-    while (listUserNames.lastElementChild) {
-        listUserNames.removeChild(listUserNames.lastElementChild);
-    }
+    // // console.log(`In user  names ${users}`)
+    // while (listUserNames.lastElementChild) {
+    //     listUserNames.removeChild(listUserNames.lastElementChild);
+    // }
 
-    users.forEach(username => {
-        let element = document.createElement('li');
-        element.innerText = username;
-        listUserNames.append(element);
-    })
+    // users.forEach(username => {
+    //     let element = document.createElement('li');
+    //     element.innerText = username;
+    //     listUserNames.append(element);
+    // })
     
 }); 
 

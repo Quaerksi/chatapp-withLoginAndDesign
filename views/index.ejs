@@ -9,6 +9,7 @@
     <script src="./ejs.min.js"></script>
     <script>
       const user = '<%= user %>';
+      const usersOnline = '<%= usersOnline %>';
       const messageDB = '';
     </script>
     <script defer language="JavaScript" type="text/javascript" src="/js/index.js"></script>
@@ -22,11 +23,13 @@
           <h1 class="h1-index">Hello <%= user %></h1>
         </div>
         <form  action="/logout" class="logout">
+          <input type="hidden" type="text" name="user" value="<%= user %>"></br>
           <button class="logout-btn-index" type="submit">Logout</button>
         </form>
         <div class="div-roomContainer">
           <h3 class="h3-index">Rooms:</h3>
           <ul id="roomContainer" class="roomContainer">
+            
               <% rooms.forEach(room => { %>
                 <% const roomManipulated = room.replace(/\s/g, "+") %>
                   <!-- <a href="http://localhost:8080/room/<%= roomManipulated%>/user/<%= user %>">Join</a> -->
@@ -53,6 +56,9 @@
         <div class="div-userSignedIn">
           <h2 class="h2-index">assigned users</h2>
           <ul id="listUserNames" class="listUserNames">
+            <% usersOnline.forEach(user => {%>
+              <li><%= user %></li>
+            <% }); %>
           </ul> 
         </div>
         <div class="grid-details">

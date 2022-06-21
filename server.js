@@ -83,7 +83,7 @@ let users = {};
 let rooms = [];
 //users who are online temporary
 //TO DO change email to username
-let usersOnline = [];
+let usersOnline = ['one'];
 
 require("./app/routes/tutorial.routes")(app);
 
@@ -97,15 +97,17 @@ app.get('/index/user/:user', auth, (req, res) => {
     return res.redirect(`/`)
   }
   
-  res.render('index', {rooms: rooms , user: req.params.user})
+  res.render('index', {rooms: rooms , user: req.params.user, usersOnline: usersOnline})
 });
 
 app.get('/index', auth, (req, res) => {
+  usersOnline = usersOnline.filter(name => name != req.nickname)
+  usersOnline.push(req.nickname);
 
   users[req.nickname] = {}
-  io.emit('user names', Object.keys(users));
+  // io.emit('user names', Object.keys(users));
 
-  return res.render('index', {rooms: rooms, user: req.nickname});
+  return res.render('index', {rooms: rooms, user: req.nickname, usersOnline: usersOnline});
 })
 
 // Register
@@ -122,13 +124,15 @@ app.post("/register", (req, res) => {
 
 // Login
 app.post("/login", (req, res) => {
+  // usersOnline.push(req.body.nickname);
 
   functionality.login(req, res);
 });
 
 //logout
 app.get("/logout", auth, (req, res) => {
-
+  // console.log(`User logout ${req.nickname}, ${usersOnline}`)
+  usersOnline = usersOnline.filter(user => user != req.nickname);
   functionality.logout(req, res);
 });
 
@@ -154,7 +158,7 @@ app.get('/room/:room/user/:user', auth,  (req, res) => {
         if(answer != '') {
           answer = JSON.stringify(answer);
         }
-        console.log(`answer ${answer}`)
+        // console.log(`answer ${answer}`)
       return res.render('room', {room:roomWithWhiteSpaces, user:req.params.user, messages:answer});
     })
   .catch(function (error) {
@@ -278,7 +282,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('send user names', () => {
-      socket.emit('user names', functionality.whoIsOnline());      
+      socket.emit('user names',  usersOnline);      
     })
 
     //broadcast messages  

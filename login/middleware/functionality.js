@@ -104,8 +104,6 @@ exports.logout = async function (req, res){
 
     try {
 
-        // console.log(`cookie: ${req.cookies.access_token}`)
-        // registeredToken.forEach(token => console.log(`Token ${token}`))
         registeredToken=registeredToken.filter(token => token != req.cookies.access_token)
 
         return res
@@ -115,14 +113,4 @@ exports.logout = async function (req, res){
     }catch(err){
         console.log(err);
     }
-}
-
-exports.whoIsOnline = function(){
-    var users = [];
-    registeredToken.forEach(token => {
-        const decoded = jwt.verify(token, config.TOKEN_KEY);
-        users.find(name => name == decoded.nickname) ? '' : users.push(decoded.nickname)
-    })
-    
-    return users;
 }
