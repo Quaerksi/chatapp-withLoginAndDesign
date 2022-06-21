@@ -83,7 +83,7 @@ let users = {};
 let rooms = [];
 //users who are online temporary
 //TO DO change email to username
-let usersOnline = ['one'];
+let usersOnline = [];
 
 require("./app/routes/tutorial.routes")(app);
 
