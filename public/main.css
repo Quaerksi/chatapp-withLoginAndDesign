@@ -112,26 +112,6 @@ margin-top: 0;
 
 /*****************border end**************************/
 
-@media (min-width: 670px) {
-
-  .typewriter{
-    overflow: hidden;
-    height:1.1em;
-    word-wrap: break-word;
-    white-space: nowrap;
-    animation: typing 4s steps(40) forwards;
-  }
-
-  @keyframes typing {
-    from { 
-      width: 0;
-    }
-
-    to { 
-      width: 27ch;
-    }
-  }
-}
 
 /*************************index.ejs******************************/
 .grid{

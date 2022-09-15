@@ -12,3 +12,21 @@ var loginAlertWelcomePage = document.getElementById('loginAlertWelcomePage');
         loginAlertWelcomePage.style.display = 'block';
       }
 
+var greeting = document.getElementById("tipping");
+var i = 0;
+var txt = 'Welcome to Juliettes Chat App';
+var speed = 200;
+
+var arrayGreetingText = txt.split('');
+
+// arrayGreetingText.forEach(function(letter, index) {
+//   setTimeout(function(){
+//     greeting.innerHTML += letter
+//   }, speed * (index + 1));
+// })
+
+var interval = setInterval(function(){
+    greeting.innerHTML += arrayGreetingText[i]
+    i++;
+    if(i === arrayGreetingText.length) clearInterval(interval);
+}, speed);

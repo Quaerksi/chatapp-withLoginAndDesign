@@ -77,7 +77,7 @@ exports.allChatEntrys = (req, res) => {
   const room = req.params.room;
   const filter = {};
 
-  console.log(`Rooms in all Chat Entrys: ${room}`);
+  // console.log(`Rooms in all Chat Entrys: ${room}`);
   // console.log(`db[room]: ${db[room]}`);
   
   const all = db[room].find(filter).sort({date: -1}).exec(function(err,docs){

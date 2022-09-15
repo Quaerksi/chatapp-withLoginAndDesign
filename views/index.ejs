@@ -32,8 +32,8 @@
             
               <% rooms.forEach(room => { %>
                 <% const roomManipulated = room.replace(/\s/g, "+") %>
-                  <!-- <a href="http://localhost:8080/room/<%= roomManipulated%>/user/<%= user %>">Join</a> -->
-                  <a href="https://juliettes-great-chat-app.herokuapp.com/room/<%= roomManipulated%>/user/<%= user %>">Join</a>
+                  <a href="http://localhost:8080/room/<%= roomManipulated%>/user/<%= user %>">Join</a>
+                  <!-- <a href="https://juliettes-great-chat-app.herokuapp.com/room/<%= roomManipulated%>/user/<%= user %>">Join</a> -->
                   <div><%= room %> </div>
               <% }); %>
           </ul>
